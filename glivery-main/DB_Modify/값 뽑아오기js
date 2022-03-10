@@ -1,0 +1,19 @@
+const admin = require('firebase-admin');
+const serviceAccount = require('key.json');
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: 'https://glivery.firebaseio.com',
+});
+const db = admin.firestore();
+
+(async () => {
+  const snapshot = await db.collection('users').doc('bygNvpmCd4VbWlx5FZI8RHxUMlC2').collection('publications').doc('R48HbtXsCmJoXTklSj7H').get();
+
+  console.log(snapshot.data().totalComments)
+    // snapshot.forEach((doc) => {
+    //     console.log(doc)
+
+    // })
+
+  
+})()
